@@ -82,7 +82,7 @@ void main(void)
     IOCAF2_SetInterruptHandler(IOCAF2_CGK_InterruptHandler);
    
     IO_RA5_SetHigh();
-    IO_RA4_SetLow();
+    IO_RA4_SetHigh();
     
     while (1)
     {
@@ -92,9 +92,9 @@ void main(void)
         
         if (g_lockoutTimer > 0) {
             g_lockoutTimer--;
-            IO_RA4_SetLow();
-        } else {
             IO_RA4_SetHigh();
+        } else {
+            IO_RA4_SetLow();
         }
            
         
