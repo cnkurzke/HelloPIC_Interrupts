@@ -48,7 +48,13 @@
           "min_clearance": 0.508
         }
       },
-      "diff_pair_dimensions": [],
+      "diff_pair_dimensions": [
+        {
+          "gap": 0.0,
+          "via_gap": 0.0,
+          "width": 0.0
+        }
+      ],
       "drc_exclusions": [],
       "meta": {
         "version": 2
@@ -79,8 +85,8 @@
         "padstack": "error",
         "pth_inside_courtyard": "ignore",
         "shorting_items": "error",
-        "silk_over_copper": "warning",
-        "silk_overlap": "warning",
+        "silk_over_copper": "ignore",
+        "silk_overlap": "ignore",
         "skew_out_of_range": "error",
         "through_hole_pad_without_hole": "error",
         "too_many_vias": "error",
@@ -112,8 +118,17 @@
         "solder_mask_min_width": 0.0,
         "use_height_for_length_calcs": true
       },
-      "track_widths": [],
-      "via_dimensions": [],
+      "track_widths": [
+        0.0,
+        1.0,
+        1.5
+      ],
+      "via_dimensions": [
+        {
+          "diameter": 0.0,
+          "drill": 0.0
+        }
+      ],
       "zones_allow_external_fillets": false,
       "zones_use_no_outline": true
     },
@@ -124,7 +139,12 @@
     "equivalence_files": []
   },
   "erc": {
-    "erc_exclusions": [],
+    "erc_exclusions": [
+      "pin_not_connected|1168400|698500|58c21bf3-e5ac-4dae-a364-028e89b512bb|00000000-0000-0000-0000-000000000000",
+      "pin_not_connected|1168400|723900|6faa5bb3-fcd8-44a3-8c32-5b13a44235b6|00000000-0000-0000-0000-000000000000",
+      "pin_not_connected|1473200|698500|d02d6239-45c4-4f7b-8557-4faf706fd8cc|00000000-0000-0000-0000-000000000000",
+      "pin_not_connected|1473200|749300|aacf8f57-636e-4a4c-8eea-1879d97af0f5|00000000-0000-0000-0000-000000000000"
+    ],
     "meta": {
       "version": 0
     },
