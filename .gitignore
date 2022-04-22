@@ -1,2 +1,7 @@
 /build/
 /dist/
+
+#KiCAD
+
+*-backups/
+fp-info-cache
