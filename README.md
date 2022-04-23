@@ -1,5 +1,7 @@
 # About
 
+<img src="https://github.com/cnkurzke/HelloPIC_Interrupts/blob/master/docs/PIC_Timer-render.jpg" alt="3D render PCB" width="200px" align="right">
+
 This is part of my adventure of learning how to use PIC Microcontrollers in the real world.
 If you want to learn more about what a PIC is, here are plenty of online resources. E.g. see here:
 
@@ -33,6 +35,8 @@ to control the "Transmission Reverse Lock-Out". For a commercial device, look at
 https://shiftsst.com/tremec-6-speed-reverse-lockout-control-module.html
 
 What's relevant for this level of detail:
+      <img src="https://github.com/cnkurzke/HelloPIC_Interrupts/blob/master/docs/hi-lo_sideSw.png" alt="Low-side vs. high-side" width="200px" align="right">
+
 *  The goal is to drive an automotive grade 12 volt Solenoid which is wired to the car in a 
    "High-Side Switch" configuration.
    What this means:
@@ -43,7 +47,7 @@ What's relevant for this level of detail:
    *  The solenoid is permanently connected to "ground", and we have to close a switch to 12V to
       activate the solenoid and unlock the reverse gear. This means we have a 
       P-Channel MOSFET in "High Side Switching" configuration.
-      For an example see here: ![72e085290102973445c4eddf933898884fec76e3](https://user-images.githubusercontent.com/210847/164800283-fc96e098-bd20-4f0d-8c8a-52a04c4c3b73.jpg)
+      For an example see here: https://www.elektormagazine.com/news/high-side-low-side-switching
 
 *  The logic implemented by this device is to:
   *  Whenever the vehicle is turned on: Activate the solenoid for 30 seconds 
@@ -66,10 +70,49 @@ Here's an early sketch of a circuit:
 
 It became apparent rather quickly that the biggest challenge would be, how to drive the 12V MOSFET from the 5V PIC output.
 
+## MOSFET Drriver
+
+It turns out that the PIC output pins, even though they are "Open Collector" capable, they are protected by a diode, which prevents to pull-up to 12V.
+
+I looked at various MOSFET Drivers, but they are really not needed, for the low (basically DC) switching  freqencies.
+In this case, a simple NPN BJT in Open Collector mode is suficcient.
+
+## Prototype
+
+After a bit of breadboarding, I had the first version up and running rather quickly. 
+
+<img src="https://github.com/cnkurzke/HelloPIC_Interrupts/blob/master/docs/PIC_Timer-breadboard.jpg" alt="Breadboard with components" width="700px">
 
 
+# KiCAD Schematics
 
-# HelloPIC_Interrupts
+I decided to create "REAL" circuit boards. After a bit of research, the free software "KiCAD" cauught my interest. It's everything  I need, and way, way more!
+See: https://www.kicad.org/
+
+After some trial and error and watching tutorials like: https://www.youtube.com/watch?v=ia2n7P3Csac
+
+I created this schematic:
+<img src="https://github.com/cnkurzke/HelloPIC_Interrupts/blob/master/docs/PIC_Timer-schematic.png" alt="Drawn circuit diagram" width="700px">
+
+The source for this is here: https://github.com/cnkurzke/HelloPIC_Interrupts/tree/master/schematics
+
+
+# PCB Layout
+
+With the help of KiCAD, i turned this schematic into a circuit board, and Gerber files: 
+https://github.com/cnkurzke/HelloPIC_Interrupts/tree/master/schematics/KiCAD_project/PIC_Timer/gerbers
+
+The Gerber files describe the PCB and are used to manufacture the final boards:
+<img src="https://github.com/cnkurzke/HelloPIC_Interrupts/blob/master/docs/PIC_Timer-PCB.png" alt="Printed Circuit Board" width="400px">
+
+... stay tuned, the boards will arrive in 5 days
+
+To be continued
+
+
+# SOFTWARE 
+
+## HelloPIC_Interrupts
 Sample code for the PIC 12F1572 interrupt handling.
 
 For a very basic introduction about Interrupts on PIC see:
