@@ -6,9 +6,10 @@
 
   (title_block
     (title "Delay / Retrigger - Control Power MOSFET")
-    (date "2022-04-10")
-    (rev "0.8 beta")
+    (date "2022-04-29")
+    (rev "0.8.1 beta")
     (company "Slipstream Systems, LLC")
+    (comment 1 "First version of PCB")
   )
 
   (lib_symbols
