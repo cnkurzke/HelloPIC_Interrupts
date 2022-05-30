@@ -49,6 +49,13 @@ What's relevant for this level of detail:
       P-Channel MOSFET in "High Side Switching" configuration.
       For an example see here: https://www.elektormagazine.com/news/high-side-low-side-switching
 
+    * <img src="https://github.com/cnkurzke/HelloPIC_Interrupts/blob/master/docs/PIC12_OpenCollector.png" alt="Open Collector with Clamping Diode" width="200px" align="right">
+      The P-Channel MOSFET needs to be driven by a 12V Gate voltage, annd can unfortunately not
+      be driven by the PIC output pin. Even though the Datasheet mentions that PIC outputs are
+      able to work as "open Collector" - this is only thue for voltages within the operating
+      voltage level. The circeled Diode in the diagram shows that the PIC has internal 
+      clamping Diodes for protection.
+      
 *  The logic implemented by this device is to:
   *  Whenever the vehicle is turned on: Activate the solenoid for 30 seconds 
   *  When the driver pushes a trigger buttom: Activate the solenoid for 30 seconds 
