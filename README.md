@@ -49,7 +49,7 @@ What's relevant for this level of detail:
       P-Channel MOSFET in "High Side Switching" configuration.
       For an example see here: https://www.elektormagazine.com/news/high-side-low-side-switching
 
-    * <img src="https://github.com/cnkurzke/HelloPIC_Interrupts/blob/master/docs/PIC12_OpenCollector.png" alt="Open Collector with Clamping Diode" width="200px" align="right">
+    * <img src="https://github.com/cnkurzke/HelloPIC_Interrupts/blob/master/docs/PIC12_OpenCollector.png" alt="Open Collector with Clamping Diode" width="450px" align="right">
       The P-Channel MOSFET needs to be driven by a 12V Gate voltage, annd can unfortunately not
       be driven by the PIC output pin. Even though the Datasheet mentions that PIC outputs are
       able to work as "open Collector" - this is only thue for voltages within the operating
