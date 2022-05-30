@@ -6,10 +6,12 @@
 
   (title_block
     (title "Delay / Retrigger - Control Power MOSFET")
-    (date "2022-04-29")
-    (rev "0.8.1 beta")
+    (date "2022-05-30")
+    (rev "2.0 beta")
     (company "Slipstream Systems, LLC")
-    (comment 1 "First version of PCB")
+    (comment 1 "Added  SPIC header for programming")
+    (comment 2 "Use SMD to  accomodate better layout ")
+    (comment 3 "Added retrigger and dedbug LED")
   )
 
   (lib_symbols
